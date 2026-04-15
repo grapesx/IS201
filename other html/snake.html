@@ -8,8 +8,6 @@
     <a href="about.html">About</a>
     <a href="#!">Snake Game</a>
     <style>
-        const finalScoreElement = document.getElementById("final-score-text");
-        
         :root {
             --bg-color: #4A752C;
             --board-light: #AAD751;
@@ -87,11 +85,6 @@
         .hidden {
             display: none;
         }
-
-        a:active {
-            color: #FF5722; /* Changes the text to a vibrant orange/red */
-        }   
-        
     </style>
 </head>
 <body>
@@ -110,8 +103,7 @@
         </div>
 
         <div id="game-over-screen" class="overlay hidden">
-            <h2 style="margin-bottom: 5px;">Game Over!</h2>
-            <p id="final-score-text" style="margin-bottom: 20px; font-size: 18px;">Apples: 0</p>
+            <h2 style="margin-bottom: 10px;">Game Over!</h2>
             <button onclick="startGame()">Try Again</button>
         </div>
     </div>
@@ -246,10 +238,6 @@
 
             if (hitWall || hitSelf) {
                 clearInterval(gameLoop);
-                
-                // Update the final score text before showing the screen
-                finalScoreElement.innerText = "You ate " + score + " apples!";
-                
                 gameOverScreen.classList.remove("hidden");
                 return true;
             }
